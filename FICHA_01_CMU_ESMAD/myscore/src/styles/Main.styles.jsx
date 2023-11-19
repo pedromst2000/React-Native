@@ -59,33 +59,62 @@ const mainStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  scores: {
-    paddingTop: 16,
-    gap: 15,
-    // 3 columns
-    flexDirection: 'row',
-    
-},
-
   scoresContainer: {
-    paddingTop: 16,
-},
-
-matchesContainer: {
-    // flexDirection: 'row',
-    gap: 35,
-    justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: 4,
-    borderBottomColor: '#2d2d2d',
-    paddingBottom: 15,
-    marginBottom: 15,
-},
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
 
-matches: {
+  timeColumn: {
     flexDirection: 'column',
-    
-}
+    gap: 4,
+    paddingLeft: 2,
+    alignItems: 'center',
+  },
+
+  
+  logoColumn: {
+    gap: 12,
+  },
+
+  teamsNameColumn: {
+    flexDirection: 'column',
+    gap: 4,
+    paddingLeft: 13,
+  },
+
+  scoresColumn: {
+    flexDirection: 'column',
+    gap: 4,
+    paddingLeft: 2,
+    borderLeftWidth: 1,
+    borderLeftColor: '#808080',
+    paddingLeft: 13,
+  },
+
+  logoTeam: {
+    width: 14,
+    height: 14,
+    borderRadius: 50,
+  },
+
+  teamsContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    paddingLeft: 32,
+    borderLeftWidth: 1,
+    borderLeftColor: '#808080',
+    paddingLeft: 23,
+    marginLeft: 11,
+  },
+
+  centerTeams: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    gap: 2,
+  },
 
 });
 

@@ -23,74 +23,82 @@ export default function Main({data}) {
           </View>
         </View>
       </View>
-      <View style={mainStyles.scoresContainer}>
-        <View style={mainStyles.scores}>
-          {data[0].matches.map((match, index) => (
-
-            <View 
-            style={mainStyles.matchesContainer}
-            key={index}>
+      {data[0].matches.map((match, index) => {
+        return (
+          <View style={mainStyles.scoresContainer} key={index}>
+            <View style={mainStyles.timeColumn}>
               <View>
-                {/* time */}
-                <View>
-                  <Text style={mainStyles.greyTime}>{match.time}</Text>
-                </View>
-                <View>
-                  <Text style={mainStyles.greyTime}>{match.statusMatch}</Text>
-                </View>
+                <Text style={mainStyles.greyTime}>{match.time}</Text>
               </View>
-              {/*  */}
               <View>
-                {/* teams */}
-                <View>
-                  <Text
-                    style={
-                      match.isHomeWinner
-                        ? mainStyles.highligthText
-                        : mainStyles.greyText
-                    }>
-                    {match.homeTeam}
-                  </Text>
-                </View>
-                <View>
-                  <Text
-                    style={
-                      match.isAwayWinner
-                        ? mainStyles.highligthText
-                        : mainStyles.greyText
-                    }>
-                    {match.awayTeam}
-                  </Text>
-                </View>
+                <Text style={mainStyles.greyTime}>{match.statusMatch}</Text>
               </View>
-              {/*  */}
-              <View>
-                {/* scores */}
-                <View>
-                  <Text
-                    style={
-                      match.isHomeWinner
-                        ? mainStyles.highligthText
-                        : mainStyles.greyText
-                    }>
-                    {match.homeScore}
-                  </Text>
+            </View>
+            <View style={mainStyles.teamsContainer}>
+              <View style={mainStyles.centerTeams}>
+                <View style={mainStyles.logoColumn}>
+                  <View>
+                    <Image
+                      source={{uri: match.logoHomeTeam}}
+                      style={mainStyles.logoTeam}
+                    />
+                  </View>
+                  <View>
+                    <Image
+                      source={{uri: match.logoAwayTeam}}
+                      style={mainStyles.logoTeam}
+                    />
+                  </View>
                 </View>
-                <View>
-                  <Text
-                    style={
-                      match.isAwayWinner
-                        ? mainStyles.highligthText
-                        : mainStyles.greyText
-                    }>
-                    {match.awayScore}
-                  </Text>
+                <View style={mainStyles.teamsNameColumn}>
+                  <View>
+                    <Text
+                      style={
+                        match.isHomeWinner === true
+                          ? mainStyles.highligthText
+                          : mainStyles.greyText
+                      }>
+                      {match.homeTeam}
+                    </Text>
+                  </View>
+                  <View>
+                    <Text
+                      style={
+                        match.isAwayWinner === true
+                          ? mainStyles.highligthText
+                          : mainStyles.greyText
+                      }>
+                      {match.awayTeam}
+                    </Text>
+                  </View>
                 </View>
               </View>
             </View>
-          ))}
-        </View>
-      </View>
+            <View style={mainStyles.scoresColumn}>
+              <View>
+                <Text
+                  style={
+                    match.isHomeWinner === true
+                      ? mainStyles.highligthText
+                      : mainStyles.greyTime
+                  }>
+                  {match.homeScore}
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={
+                    match.isAwayWinner === true
+                      ? mainStyles.highligthText
+                      : mainStyles.greyTime
+                  }>
+                  {match.awayScore}
+                </Text>
+              </View>
+            </View>
+          </View>
+        );
+      })}
     </View>
   );
 }
